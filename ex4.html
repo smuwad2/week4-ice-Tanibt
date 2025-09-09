@@ -11,19 +11,49 @@
 
    <input type="text" id="inputText">
    <!-- add a button here for adding new item -->
+    <button id="enter" onclick="addElement()">Enter</button>
+
+
 
    <ul>
-      <li>Notebook<!--<button>Delete</button></li>-->
-      <li>Jello</li>
-      <li>Spinach</li>
-      <li>Rice</li>
-      <li>Birthday Cake</li>
-      <li>Candles</li>
+      <li>Notebook<button onclick="delElement(this)">Delete</button></li>
+      <li>Jello<button onclick="delElement(this)">Delete</button></li>
+      <li>Spinach<button onclick="delElement(this)">Delete</button></li>
+      <li>Rice<button onclick="delElement(this)">Delete</button></li>
+      <li>Birthday Cake<button onclick="delElement(this)">Delete</button></li>
+      <li>Candles<button onclick="delElement(this)">Delete</button></li>
    </ul>
 
    <script>
 
       // add code here
+      function addElement(){
+         const textInp = document.getElementById("inputText");
+         const inpValue = textInp.value;
+         
+         const li = document.createElement("li");
+         li.innerText = inpValue;
+
+         const delBtn = document.createElement("button");
+         delBtn.innerText = "Delete";
+         delBtn.onclick = function(){
+            delElement(this);
+         }
+         li.appendChild(delBtn);
+
+         const ulElem = document.getElementsByTagName("ul")[0];
+         ulElem.appendChild(li);
+
+         textInp.value = "";
+         
+
+
+      }
+
+      function delElement(obj) {
+         obj.parentNode.remove();
+      }
+
 
    </script>
 
