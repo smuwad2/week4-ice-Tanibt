@@ -38,15 +38,22 @@
                     errorMessages+= "Age must be between 10 and 40.\n"
                 }
 
-                if(!email.includes("@")){
+                // if(!email.includes("@")){
+                //     errorMessages+= "Email must contain the character '@'.\n"
+                // }
+                if(email.indexOf("@") ==-1){
                     errorMessages+= "Email must contain the character '@'.\n"
                 }
 
-                if(password.trim() === ""){
+
+                // if(password.trim() === ""){
+                //     errorMessages+= "Password must be non empty.\n"                    
+                // }
+                if(!password || password.length==0){
                     errorMessages+= "Password must be non empty.\n"                    
                 }
-
                 
+                alert(errorMessages);
                 
             }
      
